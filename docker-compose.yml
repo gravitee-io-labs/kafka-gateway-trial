@@ -30,7 +30,7 @@ services:
       - app-network
 
   kafka:
-    image: docker.io/bitnami/kafka:3.8.1
+    image: docker.io/bitnami/kafka:3.7.1
     container_name: kafka
     volumes:
         - data-kafka:/bitnami/kafka

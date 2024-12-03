@@ -18,11 +18,11 @@ Add the following line:
 ```
 
 ### 3. Install Kafka
-Download [Apache Kafka 3.8.1](https://downloads.apache.org/kafka/3.8.1/kafka_2.13-3.8.1.tgz):
+Download [Apache Kafka 3.7.1](https://downloads.apache.org/kafka/3.7.1/kafka_2.13-3.7.1.tgz):
 
 ```shell
-wget https://downloads.apache.org/kafka/3.8.1/kafka_2.13-3.8.1.tgz
-tar -xvzf kafka_2.13-3.8.1.tgz
+wget https://downloads.apache.org/kafka/3.7.1/kafka_2.13-3.7.1.tgz
+tar -xvzf kafka_2.13-3.7.1.tgz
 ```
 
 Set the Kafka home directory:
@@ -87,6 +87,11 @@ flows:
 ```
 
 This configuration allows mapping virtual topics `orders-fr` and `orders-en` to a physical topic `orders`.
+
+Recreate the gateway with this updated configuration
+```shell
+docker-compose up -d --force-recreate gateway  
+```
 
 ### 2. Produce Data
 Produce messages using the console producer:
