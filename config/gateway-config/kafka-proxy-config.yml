@@ -1,0 +1,48 @@
+# Incoming connections to the Kafka gateway (entrypoint)
+listener:
+  host: kafka.local
+  port: 9092
+  bind: 0.0.0.0
+  # clusterId: main
+  hostPrefix: broker-
+  sni: true
+
+  # Security on the broker - equivalent to a plan.
+  security:
+    protocol: SASL_SSL # SSL, SASL_SSL, SASL_PLAINTEXT
+    ssl:
+      keyStore:
+        location: /opt/graviteeio-gateway/kafka/ssl/server.keystore.jks
+        password: gravitee
+        type: jks
+    sasl:
+      plain:
+        properties:
+          username: "admin"
+          password: "password"
+          user_admin: "admin-secret"
+
+# Configuration for remote broker
+broker:
+  servers: kafka:9095
+  security:
+    protocol: SASL_PLAINTEXT # SSL, SASL_SSL, SASL_PLAINTEXT
+    sasl:
+      plain:
+        properties:
+          username: "gravitee_user"
+          password: "gravitee_password"
+
+# flows:
+#   publish: # Equivalent to PRODUCE
+#   subscribe: # Equivalent to FETCH
+#   all:
+#     policies:
+#       - id: virtual-topics
+#         enabled: true
+#         configuration:
+#           mappings:
+#             - virtual: "orders-fr"
+#               physical: orders
+#             - virtual: "orders-en"
+#               physical: orders
