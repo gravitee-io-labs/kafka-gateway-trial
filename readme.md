@@ -73,7 +73,9 @@ The Virtual Topic policy is one of many policies available in Gravitee (e.g., AC
 ```yaml
 flows:
   publish: # Equivalent to PRODUCE
+    policies:
   subscribe: # Equivalent to FETCH
+    policies:
   all:
     policies:
       - id: virtual-topics
