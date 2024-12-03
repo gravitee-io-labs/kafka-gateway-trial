@@ -35,7 +35,9 @@ broker:
 
 # flows:
 #   publish: # Equivalent to PRODUCE
+#     policies:
 #   subscribe: # Equivalent to FETCH
+#     policies:
 #   all:
 #     policies:
 #       - id: virtual-topics
